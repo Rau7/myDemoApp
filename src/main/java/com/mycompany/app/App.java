@@ -40,7 +40,7 @@ public class App
       else if(min2 > min1){
         return "For given Integers Second Array contains more "+e2+"s.";
       }
-      else if(min==0 || min2==0){
+      else if(min1==0 && min2==0){
         return "Arrays have not got this number after multiplication";
       }
       return "Equal "+e2+"s";
