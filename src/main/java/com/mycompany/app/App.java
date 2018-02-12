@@ -13,14 +13,39 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
+    public static String bigger(ArrayList<Integer> array, int e, ArrayList<Integer> array2, int e2) {
       System.out.println("inside search");
-      if (array == null) return false;
+      int min1=0;
+      int min2=0;
+      if (array == null || array2 == null) return "One of them is empty";
 
       for (int elt : array) {
-        if (elt == e) return true;
+        
+        elt=elt*e;
       }
-      return false;
+      for (int elt1 : array2) {
+        elt1=elt1*e;
+      }
+
+      for (int elt : array) {
+        if (elt == e2){
+          min1++;
+        }
+      }
+      for (int elt1 : array2) {
+        if (elt1 == e2){
+          min2++;
+        }
+      }
+
+      if(min1 > min2){
+        return "For given Integers First Array contains more "+e2+"s.";
+      }
+      else if(min2 > min1){
+        return "For given Integers Second Array contains more "+e2+"s.";
+      }
+      return "Equal "+e2+"s";
+      
     }
 
     public static void main(String[] args) {
@@ -47,7 +72,23 @@ public class App
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
 
-          boolean result = App.search(inputList, input2AsInt);
+          String input3 = req.queryParams("input3");
+          java.util.Scanner sc2 = new java.util.Scanner(input3);
+          sc2.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
+          while (sc2.hasNext())
+          {
+            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+            inputList2.add(value);
+          }
+
+
+
+
+          String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
+
+          String result = App.bigger(inputList, input2AsInt ,inputList2, input4AsInt);
 
          Map map = new HashMap();
           map.put("result", result);

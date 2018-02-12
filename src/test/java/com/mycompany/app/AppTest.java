@@ -38,23 +38,32 @@ public class AppTest
         assertTrue( true );
     }
 
-   public void testFound() {
+   public void testEmptyFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(new App().search(array, 4));
+      ArrayList<Integer> array2 = new ArrayList<>();
+      assertEquals("One of them is empty",new App().bigger(array, 4, array2 ,3));
     }
 
-    public void testNotFound() {
+    public void testEquals() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().search(array, 5));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertEquals("Equal "+2+"s",new App().bigger(array, 2, array2 ,2));
     }
 
-    public void testEmptyArray() {
-      ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(new App().search(array, 1));
+    public void testBigis1Array() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(2, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertEquals("For given Integers First Array contains more "+4+"s.",new App().bigger(array, 2, array2 ,4));
+      
     }
 
-    public void testNull() {
-      assertFalse(new App().search(null, 1));
+    public void testBigis2Array() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(2, 2, 3, 4));
+      assertEquals("For given Integers Second Array contains more "+4+"s.",new App().bigger(array, 2, array2 ,4));
+      
     }
+
+  
 
 }
