@@ -19,21 +19,15 @@ public class App
       int min2=0;
       if (array == null || array2 == null) return "One of them is empty";
 
-      for (int elt : array) {
-        
-        elt=elt*e;
-      }
-      for (int elt1 : array2) {
-        elt1=elt1*e;
-      }
+ 
 
       for (int elt : array) {
-        if (elt == e2){
+        if (elt*e == e2){
           min1++;
         }
       }
       for (int elt1 : array2) {
-        if (elt1 == e2){
+        if (elt1*e == e2){
           min2++;
         }
       }
