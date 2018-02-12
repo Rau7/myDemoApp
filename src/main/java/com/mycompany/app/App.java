@@ -17,8 +17,10 @@ public class App
       System.out.println("inside search");
       int min1=0;
       int min2=0;
-      if (array == null || array2 == null) return "One of them is empty";
+      if (array == null || array2 == null){
 
+       return "One of them is empty";
+     }
  
 
       for (int elt : array) {

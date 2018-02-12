@@ -39,8 +39,8 @@ public class AppTest
     }
 
    public void testEmptyFound() {
-      ArrayList<Integer> array = new ArrayList<>();
-      ArrayList<Integer> array2 = new ArrayList<>();
+      ArrayList<Integer> array = null;
+      ArrayList<Integer> array2 = null;
       assertEquals("One of them is empty",new App().bigger(array, 4, array2 ,3));
     }
 
