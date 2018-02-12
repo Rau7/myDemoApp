@@ -40,6 +40,9 @@ public class App
       else if(min2 > min1){
         return "For given Integers Second Array contains more "+e2+"s.";
       }
+      else if(min==0 || min2==0){
+        return "Arrays have not got this number after multiplication";
+      }
       return "Equal "+e2+"s";
       
     }
@@ -47,7 +50,7 @@ public class App
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "Hello, World");
+        get("/", (req, res) -> "Which Array Has More Selected Integer After Multiplication with Another Selected Integer");
 
         post("/compute", (req, res) -> {
           //System.out.println(req.queryParams("input1"));
@@ -95,7 +98,7 @@ public class App
         get("/compute",
             (rq, rs) -> {
               Map map = new HashMap();
-              map.put("result", "not computed yet!");
+              map.put("result", "Not Computed Yet(First and Third Box for Arrays, Second and Fourth for Integers)");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());

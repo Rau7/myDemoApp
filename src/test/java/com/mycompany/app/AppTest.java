@@ -63,6 +63,12 @@ public class AppTest
       assertEquals("For given Integers Second Array contains more "+4+"s.",new App().bigger(array, 2, array2 ,4));
       
     }
+    public void testNoNumber() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(2, 2, 3, 4));
+      assertEquals("Arrays have not got this number after multiplication",new App().bigger(array, 10, array2 ,11));
+      
+    }
 
   
 
